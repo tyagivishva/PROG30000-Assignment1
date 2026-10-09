@@ -3,66 +3,248 @@
     ViewData["Title"] = "Request Form";
 }
 
-<h1>Request Form</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,560&display=swap" rel="stylesheet">
 
-<form asp-action="RequestForm" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+<section class="request" aria-labelledby="request-title">
+    <div class="request-copy">
+        <h1 id="request-title">Request Form</h1>
+        <p>Send a request for a piece of equipment. Every field is required.</p>
     </div>
 
-    <div class="mb-3">
-        <label asp-for="Email" class="form-label"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
+    <form asp-action="RequestForm" method="post" class="request-form">
+        <div asp-validation-summary="ModelOnly" class="request-summary"></div>
 
-    <div class="mb-3">
-        <label asp-for="PhoneNumber" class="form-label"></label>
-        <input asp-for="PhoneNumber" class="form-control" placeholder="Ex. 905-922-2222" />
-        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-    </div>
+        <div class="request-field">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name"></span>
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="Role" class="form-label"></label>
-        <select asp-for="Role" class="form-control">
-            <option value="">Select a role</option>
-            <option>Student</option>
-            <option>Professor</option>
-        </select>
-        <span asp-validation-for="Role" class="text-danger"></span>
-    </div>
+        <div class="request-field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="EquipmentType" class="form-label"></label>
-        <select asp-for="EquipmentType" class="form-control">
-            <option value="">Select equipment</option>
-            <option>Laptop</option>
-            <option>Phone</option>
-            <option>Tablet</option>
-            <option>Another</option>
-        </select>
-        <span asp-validation-for="EquipmentType" class="text-danger"></span>
-    </div>
+        <div class="request-field">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Ex. 905-922-2222" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="RequestDetails" class="form-label"></label>
-        <textarea asp-for="RequestDetails" class="form-control" rows="4"></textarea>
-        <span asp-validation-for="RequestDetails" class="text-danger"></span>
-    </div>
+        <div class="request-field">
+            <label asp-for="Role"></label>
+            <select asp-for="Role" class="form-control">
+                <option value="">Select a role</option>
+                <option>Student</option>
+                <option>Professor</option>
+            </select>
+            <span asp-validation-for="Role"></span>
+        </div>
 
-    <div class="mb-3">
-        <label asp-for="Duration" class="form-label"></label>
-        <input asp-for="Duration" class="form-control" />
-        <span asp-validation-for="Duration" class="text-danger"></span>
-    </div>
+        <div class="request-field">
+            <label asp-for="EquipmentType"></label>
+            <select asp-for="EquipmentType" class="form-control">
+                <option value="">Select equipment</option>
+                <option>Laptop</option>
+                <option>Phone</option>
+                <option>Tablet</option>
+                <option>Another</option>
+            </select>
+            <span asp-validation-for="EquipmentType"></span>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <div class="request-field">
+            <label asp-for="RequestDetails"></label>
+            <textarea asp-for="RequestDetails" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="RequestDetails"></span>
+        </div>
+
+        <div class="request-field">
+            <label asp-for="Duration"></label>
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration"></span>
+        </div>
+
+        <button type="submit" class="request-submit">Submit</button>
+    </form>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<style>
+    body {
+        background: #f3f1eb;
+    }
+
+    .request {
+        display: grid;
+        gap: 2.75rem;
+        padding: 4.25rem 0 3.5rem;
+        color: #1c1a17;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    }
+
+    @@media (min-width: 860px) {
+        .request {
+            grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1.1fr);
+            column-gap: 4.5rem;
+            align-items: start;
+        }
+    }
+
+    .request-copy h1 {
+        margin: 0;
+        max-width: 8ch;
+        font-family: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
+        font-size: clamp(2.65rem, 5vw, 3.7rem);
+        font-weight: 560;
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+    }
+
+    .request-copy h1::after {
+        content: "";
+        display: block;
+        width: 3.25rem;
+        height: 3px;
+        margin-top: 1.35rem;
+        background: #9a3412;
+        transform-origin: left center;
+        animation: request-draw 0.65s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+    }
+
+    .request-copy p {
+        max-width: 22rem;
+        margin: 1.35rem 0 0;
+        color: #3f3b36;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+    }
+
+    .request-form {
+        margin: 0;
+        animation: request-rise 0.5s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+    }
+
+    .request-field {
+        margin: 0 0 1.15rem;
+    }
+
+    .request-field label {
+        display: block;
+        margin-bottom: 0.35rem;
+        color: #6b6560;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .request-form .form-control {
+        width: 100%;
+        padding: 0.7rem 0.15rem;
+        border: 0;
+        border-bottom: 1px solid #e3dcd1;
+        border-radius: 0;
+        background: transparent;
+        color: #1c1a17;
+        font-family: inherit;
+        font-size: 1.0625rem;
+        line-height: 1.4;
+        box-shadow: none;
+    }
+
+    .request-form .form-control:focus {
+        border-bottom-color: #9a3412;
+        background: transparent;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .request-form textarea.form-control {
+        min-height: 6.5rem;
+        resize: vertical;
+    }
+
+    .request-form .form-control::placeholder {
+        color: #8a847c;
+    }
+
+    .request-form .field-validation-error,
+    .request-summary.validation-summary-errors {
+        display: block;
+        margin-top: 0.35rem;
+        color: #9a3412;
+        font-size: 0.875rem;
+    }
+
+    .request-summary.validation-summary-valid {
+        display: none;
+    }
+
+    .request-summary.validation-summary-errors ul {
+        margin: 0 0 1rem;
+        padding-left: 1.1rem;
+    }
+
+    .request-submit {
+        margin-top: 0.6rem;
+        padding: 0.8rem 1.35rem;
+        border: 0;
+        border-radius: 0;
+        background: #1c1a17;
+        color: #f3f1eb;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        transition: background-color 160ms ease;
+    }
+
+    .request-submit:hover {
+        background: #9a3412;
+    }
+
+    .request-submit:focus-visible {
+        outline: 2px solid #1c1a17;
+        outline-offset: 3px;
+    }
+
+    .request ::selection {
+        background: #f0d2c4;
+        color: #1c1a17;
+    }
+
+    @@keyframes request-draw {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+
+    @@keyframes request-rise {
+        from {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @@media (prefers-reduced-motion: reduce) {
+        .request-copy h1::after,
+        .request-form {
+            animation: none;
+        }
+
+        .request-submit {
+            transition: none;
+        }
+    }
+</style>

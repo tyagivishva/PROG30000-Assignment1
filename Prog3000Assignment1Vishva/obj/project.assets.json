@@ -8,7 +8,7 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/Users/vishva/.nuget/packages/": {}
+    "/var/folders/bl/jrwh2wz94nqgc1cyyt4mmwmc0000gn/T/cursor-sandbox-cache/6a371b2442b04292616aea2868b11d4b/nuget": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,7 +16,7 @@
       "projectUniqueName": "/Users/vishva/Desktop/SHERIDAN /Semester 5/Enterprise Software System/Prog3000Assignment1Vishva/Prog3000Assignment1Vishva/Prog3000Assignment1Vishva.csproj",
       "projectName": "Prog3000Assignment1Vishva",
       "projectPath": "/Users/vishva/Desktop/SHERIDAN /Semester 5/Enterprise Software System/Prog3000Assignment1Vishva/Prog3000Assignment1Vishva/Prog3000Assignment1Vishva.csproj",
-      "packagesPath": "/Users/vishva/.nuget/packages/",
+      "packagesPath": "/var/folders/bl/jrwh2wz94nqgc1cyyt4mmwmc0000gn/T/cursor-sandbox-cache/6a371b2442b04292616aea2868b11d4b/nuget",
       "outputPath": "/Users/vishva/Desktop/SHERIDAN /Semester 5/Enterprise Software System/Prog3000Assignment1Vishva/Prog3000Assignment1Vishva/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
