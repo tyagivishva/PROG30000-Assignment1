@@ -2,5 +2,82 @@
     ViewData["Title"] = "Confirmation";
 }
 
-<h1>Request received</h1>
-<p>Thank you. Your equipment request has been submitted. IT will be in touch soon.</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,560&display=swap" rel="stylesheet">
+
+<section class="confirm" aria-labelledby="confirm-title">
+    <h1 id="confirm-title">Request received</h1>
+    <p>Thank you. Your equipment request has been submitted. IT will be in touch soon.</p>
+</section>
+
+<style>
+    body {
+        background: #f3f1eb;
+    }
+
+    .confirm {
+        padding: 4.25rem 0 3.5rem;
+        color: #1c1a17;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+        animation: confirm-rise 0.5s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+    }
+
+    .confirm h1 {
+        margin: 0;
+        max-width: 10ch;
+        font-family: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
+        font-size: clamp(2.65rem, 5vw, 3.7rem);
+        font-weight: 560;
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+    }
+
+    .confirm h1::after {
+        content: "";
+        display: block;
+        width: 3.25rem;
+        height: 3px;
+        margin-top: 1.35rem;
+        background: #9a3412;
+        transform-origin: left center;
+        animation: confirm-draw 0.65s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+    }
+
+    .confirm p {
+        max-width: 36rem;
+        margin: 1.35rem 0 0;
+        color: #3f3b36;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+    }
+
+    .confirm ::selection {
+        background: #f0d2c4;
+        color: #1c1a17;
+    }
+
+    @@keyframes confirm-draw {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+
+    @@keyframes confirm-rise {
+        from {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @@media (prefers-reduced-motion: reduce) {
+        .confirm,
+        .confirm h1::after {
+            animation: none;
+        }
+    }
+</style>
