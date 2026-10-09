@@ -12,4 +12,9 @@ public class EquipmentRequestRepository
         request.Id = _nextId++;
         Requests.Add(request);
     }
+
+    public List<EquipmentRequest> GetAll()
+    {
+        return Requests;
+    }
 }

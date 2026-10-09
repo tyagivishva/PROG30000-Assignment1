@@ -50,6 +50,12 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet("/Requests")]
+    public IActionResult Requests()
+    {
+        return View(new EquipmentRequestRepository().GetAll());
+    }
+
     
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
