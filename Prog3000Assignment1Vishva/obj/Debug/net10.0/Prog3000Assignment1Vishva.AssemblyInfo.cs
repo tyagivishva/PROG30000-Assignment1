@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Prog3000Assignment1Vishva")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+539570d4c614f95f0e7c646326a5b1564721a177")]
 [assembly: System.Reflection.AssemblyProductAttribute("Prog3000Assignment1Vishva")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Prog3000Assignment1Vishva")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

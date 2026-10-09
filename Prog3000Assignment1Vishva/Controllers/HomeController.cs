@@ -11,10 +11,22 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult EquipmentListing()
     {
         return View();
     }
+
+    public IActionResult AvailableEquipment()
+    {
+        return View();
+    }
+
+    public IActionResult RequestForm()
+    {
+        return View();
+    }
+
+    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
