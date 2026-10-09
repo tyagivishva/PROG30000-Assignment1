@@ -53,7 +53,23 @@ public class HomeController : Controller
     [HttpGet("/Requests")]
     public IActionResult Requests()
     {
-        return View(new EquipmentRequestRepository().GetAll());
+        return View(_requests.GetAll());
+    }
+
+    [HttpPost("/Requests/Accept")]
+    [ValidateAntiForgeryToken]
+    public IActionResult AcceptRequest(int id)
+    {
+        _requests.Accept(id);
+        return Redirect("/Requests");
+    }
+
+    [HttpPost("/Requests/Deny")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DenyRequest(int id)
+    {
+        _requests.Deny(id);
+        return Redirect("/Requests");
     }
 
     

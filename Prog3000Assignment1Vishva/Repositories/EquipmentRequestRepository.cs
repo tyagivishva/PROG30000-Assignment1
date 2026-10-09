@@ -17,4 +17,22 @@ public class EquipmentRequestRepository
     {
         return Requests;
     }
+
+    public void Accept(int id)
+    {
+        var request = Requests.FirstOrDefault(item => item.Id == id);
+        if (request != null)
+        {
+            request.Status = "Accepted";
+        }
+    }
+
+    public void Deny(int id)
+    {
+        var request = Requests.FirstOrDefault(item => item.Id == id);
+        if (request != null)
+        {
+            request.Status = "Denied";
+        }
+    }
 }

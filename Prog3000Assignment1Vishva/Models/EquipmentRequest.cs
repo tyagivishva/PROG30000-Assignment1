@@ -33,4 +33,6 @@ public class EquipmentRequest
     [Range(1, int.MaxValue, ErrorMessage = "Duration must be a positive number.")]
     [Display(Name = "Duration (days)")]
     public int? Duration { get; set; }
+
+    public string? Status { get; set; }
 }
