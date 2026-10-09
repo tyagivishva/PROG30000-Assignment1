@@ -1,8 +1,191 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "FAST Equipment Tool";
 }
 
-<h1>FAST Equipment Tool</h1>
-<p>
-    Welcome to the Fast Equipment Tools Web App, You Can Access The Menu!
-</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,560&display=swap" rel="stylesheet">
+
+<section class="home" aria-labelledby="home-title">
+    <div class="home-copy">
+        <h1 id="home-title">FAST Equipment Tool</h1>
+        <p>
+            This page is where you start. Look through the full equipment listing,
+            see what is available to borrow right now, and open the request form
+            when you need something from the shop.
+        </p>
+    </div>
+
+    <nav class="home-menu" aria-label="Equipment pages">
+        <a asp-area="" asp-controller="Home" asp-action="EquipmentListing">
+            <span class="home-no">01</span>
+            <span>All Equipment Listing</span>
+            <span class="home-go" aria-hidden="true"></span>
+        </a>
+        <a asp-area="" asp-controller="Home" asp-action="AvailableEquipment">
+            <span class="home-no">02</span>
+            <span>Available Equipment</span>
+            <span class="home-go" aria-hidden="true"></span>
+        </a>
+        <a asp-area="" asp-controller="Home" asp-action="RequestForm">
+            <span class="home-no">03</span>
+            <span>Request Form</span>
+            <span class="home-go" aria-hidden="true"></span>
+        </a>
+    </nav>
+</section>
+
+<style>
+    body {
+        background: #f3f1eb;
+    }
+
+    .home {
+        display: grid;
+        gap: 2.75rem;
+        padding: 4.25rem 0 3.5rem;
+        color: #1c1a17;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    }
+
+    @@media (min-width: 860px) {
+        .home {
+            grid-template-columns: minmax(0, 1.15fr) minmax(16.5rem, 0.85fr);
+            column-gap: 4.5rem;
+            align-items: start;
+        }
+    }
+
+    .home-copy h1 {
+        margin: 0;
+        max-width: 12ch;
+        font-family: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
+        font-size: clamp(2.65rem, 5vw, 3.7rem);
+        font-weight: 560;
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+    }
+
+    .home-copy h1::after {
+        content: "";
+        display: block;
+        width: 3.25rem;
+        height: 3px;
+        margin-top: 1.35rem;
+        background: #9a3412;
+        transform-origin: left center;
+        animation: home-draw 0.65s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+    }
+
+    .home-copy p {
+        max-width: 36rem;
+        margin: 1.35rem 0 0;
+        color: #3f3b36;
+        font-size: 1.0625rem;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    .home-menu {
+        margin: 0.35rem 0 0;
+    }
+
+    .home-menu a {
+        display: grid;
+        grid-template-columns: 2.6rem minmax(0, 1fr) 1.35rem;
+        align-items: center;
+        margin: 0 -0.7rem;
+        padding: 1rem 0.7rem;
+        border-top: 1px solid #e3dcd1;
+        color: #1c1a17;
+        font-size: 1.0625rem;
+        font-weight: 500;
+        line-height: 1.3;
+        text-decoration: none;
+        animation: home-rise 0.5s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+    }
+
+    .home-menu a:nth-child(1) { animation-delay: 0.08s; }
+    .home-menu a:nth-child(2) { animation-delay: 0.16s; }
+    .home-menu a:nth-child(3) { animation-delay: 0.24s; }
+
+    .home-menu a:last-child {
+        border-bottom: 1px solid #e3dcd1;
+    }
+
+    .home-menu a:hover {
+        background: #fffcf8;
+        color: #9a3412;
+    }
+
+    .home-menu a:hover .home-go {
+        transform: translateX(5px);
+    }
+
+    .home-menu a:focus-visible {
+        outline: 2px solid #1c1a17;
+        outline-offset: 2px;
+    }
+
+    .home-no {
+        color: #9a3412;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .home-go {
+        justify-self: end;
+        width: 1.15rem;
+        height: 1px;
+        background: currentColor;
+        position: relative;
+        transition: transform 160ms ease;
+    }
+
+    .home-go::after {
+        content: "";
+        position: absolute;
+        top: -3.5px;
+        right: 0;
+        width: 7px;
+        height: 7px;
+        border-top: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+        transform: rotate(45deg);
+    }
+
+    .home ::selection {
+        background: #f0d2c4;
+        color: #1c1a17;
+    }
+
+    @@keyframes home-draw {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+
+    @@keyframes home-rise {
+        from {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @@media (prefers-reduced-motion: reduce) {
+        .home-copy h1::after,
+        .home-menu a {
+            animation: none;
+        }
+
+        .home-go {
+            transition: none;
+        }
+    }
+</style>
