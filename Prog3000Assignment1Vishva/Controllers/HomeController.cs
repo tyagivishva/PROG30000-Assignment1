@@ -14,14 +14,16 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet("/AllEquipment")]
     public IActionResult EquipmentListing()
     {
-        return View();
+        return View(new EquipmentRepository().GetAll());
     }
 
+    [HttpGet("/AvailableEquipment")]
     public IActionResult AvailableEquipment()
     {
-        return View();
+        return View(new EquipmentRepository().GetAvailable());
     }
 
     [HttpGet("/RequestForm")]
